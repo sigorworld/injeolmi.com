@@ -1,0 +1,265 @@
+/*!***************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./style/lib/reset.css ***!
+  \***************************************************************************************************/
+/***
+    The new CSS reset - version 1.11.2 (last updated 15.11.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+ *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *, w3m-modal)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Fix mobile Safari increase font-size on landscape mode */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu, summary {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+    box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+    box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+    display: none;
+}
+/*!**************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/less-loader/dist/cjs.js!./style/main.less ***!
+  \**************************************************************************************************************************************/
+@font-face {
+  font-family: ChosunGs;
+  src: url("/fonts/chosungs.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --primary-color: #f7dea5;
+}
+@keyframes rainbow-color {
+  0% {
+    color: red;
+  }
+  15% {
+    color: orange;
+  }
+  30% {
+    color: yellow;
+  }
+  45% {
+    color: green;
+  }
+  60% {
+    color: blue;
+  }
+  75% {
+    color: navy;
+  }
+  90% {
+    color: purple;
+  }
+  100% {
+    color: pink;
+  }
+}
+*,
+*::before,
+*::after {
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body {
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+}
+body {
+  font-family: ChosunGs;
+  font-size: 16px;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  container-type: inline-size;
+}
+h1 {
+  line-height: 1.1;
+}
+p {
+  line-height: 1.5;
+  word-break: break-word;
+}
+h1,
+h2 {
+  color: var(--primary-color);
+}
+h1 {
+  font-size: 86px;
+  text-shadow: -2px -2px 0 #1f1f1f, -2px -1px 0 #1f1f1f, -2px 0px 0 #1f1f1f, -2px 1px 0 #1f1f1f, -2px 2px 0 #1f1f1f, -1px -2px 0 #1f1f1f, -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, -1px 2px 0 #1f1f1f, 0px -2px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 0px 2px 0 #1f1f1f, 1px -2px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f, 1px 2px 0 #1f1f1f, 2px -2px 0 #1f1f1f, 2px -1px 0 #1f1f1f, 2px 0px 0 #1f1f1f, 2px 1px 0 #1f1f1f, 2px 2px 0 #1f1f1f;
+}
+h2 {
+  font-size: 32px;
+  text-shadow: -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f;
+}
+body {
+  background-image: url("/images/background.jpg");
+  text-align: center;
+  padding: 60px 20px;
+}
+section {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: purple;
+}
+a:active {
+  color: red;
+}
+a:hover,
+a:focus {
+  animation-duration: 3s;
+  animation-name: rainbow-color;
+  animation-iteration-count: infinite;
+}
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+button,
+a.button {
+  display: block;
+  box-sizing: border-box;
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 #222222;
+  text-decoration: none;
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  min-width: 75px;
+  min-height: 23px;
+  padding: 12px 30px;
+  text-align: center;
+}
+button:active:not(:disabled),
+a.button:active:not(:disabled) {
+  box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+  text-shadow: 1px 1px #222222;
+}
+button:focus,
+a.button:focus {
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+}
+button:disabled,
+a.button:disabled {
+  color: #808080;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+.extra > a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: underline;
+}
+.extra > a:visited {
+  color: #333;
+}
+.extra > a:active {
+  color: #333;
+}
+.extra > a:hover,
+.extra > a:focus {
+  animation-name: none;
+}
+
