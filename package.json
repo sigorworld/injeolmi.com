@@ -5,7 +5,9 @@
     "webpack-prod": "node node_modules/webpack-cli/bin/cli.js --mode production --config webpack.config.prod.ts"
   },
   "type": "module",
-  "dependencies": {},
+  "dependencies": {
+    "kaia-wallet-module": "^0.0.1"
+  },
   "devDependencies": {
     "@common-module/static-site-generator": "^0.0.2",
     "@types/node": "^22.7.5",
