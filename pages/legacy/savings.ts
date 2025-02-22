@@ -16,7 +16,7 @@ export default function savings() {
       ),
       el(
         ".button-container",
-        el("button.connect-wallet", "지갑연결"),
+        el("button.connect-wallet", "지갑 연결"),
         el("button", "출금하기"),
       ),
     ),
