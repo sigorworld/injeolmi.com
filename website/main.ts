@@ -6,6 +6,7 @@ import {
 
 if (location.pathname === "/legacy/savings.html") {
   KaiaWalletModuleConfig.init({
+    appName: "인절미.닷컴",
     walletConnectProjectId: "17f20ae9afff64763686bd15f8d9371a",
   });
 
