@@ -234,6 +234,15 @@ dialog.modal.structured-modal > header > h1 {
   font-size: inherit;
   text-shadow: -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f;
 }
+dialog.modal.structured-modal > header:has(:nth-child(2)) {
+  display: flex;
+  justify-content: space-between;
+}
+dialog.modal.structured-modal > header:has(:nth-child(2)) > .icon {
+  padding: 4px;
+  min-width: 40px;
+  font-size: 12px;
+}
 dialog.modal.structured-modal > main {
   overflow-y: auto;
   flex-grow: 1;

@@ -16,6 +16,17 @@ dialog.modal.structured-modal {
       font-size  : inherit;
       text-shadow: -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f;
     }
+
+    &:has(:nth-child(2)) {
+      display        : flex;
+      justify-content: space-between;
+
+      >.icon {
+        padding  : 4px;
+        min-width: 40px;
+        font-size: 12px;
+      }
+    }
   }
 
   >main {
