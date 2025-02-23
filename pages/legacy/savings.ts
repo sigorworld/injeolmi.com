@@ -14,10 +14,12 @@ export default function savings() {
         "p",
         "절미 적금이 종료되어, 기존에 예치한 인절미의 출금만 가능합니다.",
       ),
+      el(".connected-wallet-address", "지갑 주소:"),
+      el(".withdrawable-ijm", "출금 가능한 인절미:"),
       el(
         ".button-container",
         el("button.connect-wallet", "지갑 연결"),
-        el("button", "출금하기"),
+        el("button.withdraw-ijm", "출금하기"),
       ),
     ),
   );

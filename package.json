@@ -6,7 +6,7 @@
   },
   "type": "module",
   "dependencies": {
-    "kaia-wallet-module": "^0.0.1"
+    "kaia-wallet-module": "^0.0.2"
   },
   "devDependencies": {
     "@common-module/static-site-generator": "^0.0.2",
