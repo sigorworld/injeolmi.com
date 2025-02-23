@@ -1,4 +1,5 @@
 import { DomNode } from "@common-module/app";
+import { StringUtils } from "@common-module/ts";
 import {
   KaiaWalletModuleConfig,
   KaiaWalletSessionManager,
@@ -44,35 +45,44 @@ if (location.pathname === "/legacy/savings.html") {
       const withdrawable = await SInjeolmiContract.withdrawableIJM(
         KaiaWalletSessionManager.getConnectedAddress()!,
       );
-      withdrawableIJM.text = `출금 가능한 인절미: ${formatEther(withdrawable)}`;
+      withdrawableIJM.text = `출금 가능한 인절미: ${
+        StringUtils.formatNumberWithCommas(formatEther(withdrawable), 3)
+      }`;
     }
-
-    new DomNode(
-      document.querySelector("button.withdraw-ijm") as HTMLButtonElement,
-    ).onDom("click", async () => {
-      if (!KaiaWalletSessionManager.isConnected()) {
-        alert("지갑을 연결해주세요.");
-        return;
-      }
-
-      const withdrawable = await SInjeolmiContract.withdrawableIJM(
-        KaiaWalletSessionManager.getConnectedAddress()!,
-      );
-
-      if (withdrawable === 0n) {
-        alert("출금 가능한 인절미가 없습니다.");
-        return;
-      }
-
-      if (!confirm(`${formatEther(withdrawable)} 인절미를 출금하시겠습니까?`)) {
-        return;
-      }
-
-      await SInjeolmiContract.unstake(withdrawable);
-      alert("출금되었습니다.");
-    });
   }
 
   renderConnected();
   KaiaWalletSessionManager.on("sessionChanged", () => renderConnected());
+
+  new DomNode(
+    document.querySelector("button.withdraw-ijm") as HTMLButtonElement,
+  ).onDom("click", async () => {
+    if (!KaiaWalletSessionManager.isConnected()) {
+      alert("지갑을 연결해주세요.");
+      return;
+    }
+
+    const withdrawable = await SInjeolmiContract.withdrawableIJM(
+      KaiaWalletSessionManager.getConnectedAddress()!,
+    );
+
+    if (withdrawable === 0n) {
+      alert("출금 가능한 인절미가 없습니다.");
+      return;
+    }
+
+    if (
+      !confirm(
+        `${
+          StringUtils.formatNumberWithCommas(formatEther(withdrawable), 3)
+        } 인절미를 출금하시겠습니까?`,
+      )
+    ) {
+      return;
+    }
+
+    await SInjeolmiContract.unstake(withdrawable);
+    alert("출금되었습니다.");
+    renderConnected();
+  });
 }
