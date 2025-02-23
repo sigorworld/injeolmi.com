@@ -1,4 +1,5 @@
 import { DomNode } from "@common-module/app";
+import { AppCompConfig } from "@common-module/app-components";
 import { StringUtils } from "@common-module/ts";
 import {
   KaiaWalletModuleConfig,
@@ -9,6 +10,12 @@ import InjeolmiContract from "./contracts/InjeolmiContract.js";
 import SInjeolmiContract from "./contracts/SInjeolmiContract.js";
 
 if (location.pathname === "/legacy/savings.html") {
+  AppCompConfig.LoadingSpinner = class extends DomNode<HTMLImageElement> {
+    constructor() {
+      super("img", { src: "/images/loading.gif" });
+    }
+  };
+
   KaiaWalletModuleConfig.init({
     appName: "인절미.닷컴",
     walletConnectProjectId: "17f20ae9afff64763686bd15f8d9371a",

@@ -295,6 +295,19 @@ dialog.modal.prompt-dialog > header > h1 > .icon {
 .kaia-wallet-login-modal > main > .button-group > button > .icon-container {
   width: 40px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kaia-wallet-connection-modal > main > .button-group > button > .icon-container > .icon,
+.kaia-wallet-login-modal > main > .button-group > button > .icon-container > .icon {
+  -webkit-mask-image: url(/images/avatar-mask.png);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: url(/images/avatar-mask.png);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  display: flex;
 }
 h1,
 h2 {
