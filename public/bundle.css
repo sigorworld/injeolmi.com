@@ -121,6 +121,8 @@ meter {
 }
 :root {
   --primary-color: #f7dea5;
+  --overlay-color: rgba(34, 34, 34, 0.6);
+  --modal-bg-color: #fff;
 }
 @keyframes rainbow-color {
   0% {
@@ -171,6 +173,128 @@ h1 {
 p {
   line-height: 1.5;
   word-break: break-word;
+}
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px;
+  border-radius: 4.5px;
+}
+.non-modal-dialog-container:has(*) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: var(--overlay-color);
+  animation: fade-in 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.non-modal-dialog-container:has(*) > dialog {
+  margin: 21px auto;
+  max-height: calc(100% - 42px);
+}
+dialog.modal {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  background-color: var(--modal-bg-color);
+  color: var(--paragraph-text-color);
+  animation: fade-in 0.3s ease-out;
+  container-type: inline-size;
+}
+dialog.modal::backdrop {
+  backdrop-filter: blur(50px);
+  background-color: var(--overlay-color);
+  animation: fade-in 0.3s ease-out;
+}
+dialog.modal:not([open]) {
+  display: none !important;
+}
+dialog.modal.structured-modal {
+  display: flex;
+  flex-direction: column;
+}
+dialog.modal.structured-modal > header {
+  flex-shrink: 0;
+  padding: 34px;
+  font-size: 26px;
+}
+@container (width <= 520px) {
+  dialog.modal.structured-modal > header {
+    font-size: 22px;
+    padding: 34px 24px;
+  }
+}
+dialog.modal.structured-modal > header > h1 {
+  font-size: inherit;
+  text-shadow: -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f;
+}
+dialog.modal.structured-modal > main {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 0 34px;
+}
+@container (width <= 520px) {
+  dialog.modal.structured-modal > main {
+    padding: 0 24px;
+  }
+}
+dialog.modal.structured-modal > footer {
+  flex-shrink: 0;
+  padding: 24px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+@container (width <= 520px) {
+  dialog.modal.structured-modal > footer {
+    padding: 24px;
+  }
+}
+dialog.modal.alert-dialog > header > h1,
+dialog.modal.confirm-dialog > header > h1,
+dialog.modal.prompt-dialog > header > h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+dialog.modal.alert-dialog > header > h1 > .icon,
+dialog.modal.confirm-dialog > header > h1 > .icon,
+dialog.modal.prompt-dialog > header > h1 > .icon {
+  width: 32px;
+  height: 32px;
+}
+.non-modal-dialog-container:has(.kaia-wallet-connection-modal),
+.non-modal-dialog-container:has(.kaia-wallet-login-modal) {
+  z-index: 99997;
+}
+.kaia-wallet-connection-modal,
+.kaia-wallet-login-modal {
+  max-width: 480px !important;
+}
+.kaia-wallet-connection-modal > main > .button-group,
+.kaia-wallet-login-modal > main > .button-group {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.kaia-wallet-connection-modal > main > .button-group > button,
+.kaia-wallet-login-modal > main > .button-group > button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.kaia-wallet-connection-modal > main > .button-group > button > .icon-container,
+.kaia-wallet-login-modal > main > .button-group > button > .icon-container {
+  width: 40px;
+  height: 40px;
 }
 h1,
 h2 {

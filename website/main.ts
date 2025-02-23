@@ -5,6 +5,7 @@ import {
   KaiaWalletSessionManager,
 } from "kaia-wallet-module";
 import { formatEther } from "viem";
+import InjeolmiContract from "./contracts/InjeolmiContract.js";
 import SInjeolmiContract from "./contracts/SInjeolmiContract.js";
 
 if (location.pathname === "/legacy/savings.html") {
@@ -15,6 +16,10 @@ if (location.pathname === "/legacy/savings.html") {
 
   const connectedWalletAddress = new DomNode(
     document.querySelector(".connected-wallet-address") as HTMLDivElement,
+  );
+
+  const ijmBalance = new DomNode(
+    document.querySelector(".ijm-balance") as HTMLDivElement,
   );
 
   const withdrawableIJM = new DomNode(
@@ -40,8 +45,16 @@ if (location.pathname === "/legacy/savings.html") {
       : "지갑 연결";
 
     if (!KaiaWalletSessionManager.isConnected()) {
+      ijmBalance.text = "보유한 인절미: 연결되지 않음";
       withdrawableIJM.text = "출금 가능한 인절미: 연결되지 않음";
     } else {
+      const balance = await InjeolmiContract.balanceOf(
+        KaiaWalletSessionManager.getConnectedAddress()!,
+      );
+      ijmBalance.text = `보유한 인절미: ${
+        StringUtils.formatNumberWithCommas(formatEther(balance), 3)
+      }`;
+
       const withdrawable = await SInjeolmiContract.withdrawableIJM(
         KaiaWalletSessionManager.getConnectedAddress()!,
       );
