@@ -7,6 +7,7 @@ export default function savings() {
       jsFiles: ["/bundle.js"],
       cssFiles: ["/bundle.css"],
       coverImageURL: "/images/cover.png",
+      twitterHandle: "@SigorWorld",
     },
     el(
       "section",
