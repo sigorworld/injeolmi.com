@@ -6,6 +6,7 @@ export default function savings() {
       title: "(구) 절미 적금",
       jsFiles: ["/bundle.js"],
       cssFiles: ["/bundle.css"],
+      coverImageURL: "/images/cover.png",
     },
     el(
       "section",

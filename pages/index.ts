@@ -6,6 +6,7 @@ export default function index() {
       title: "인절미.닷컴",
       jsFiles: ["/bundle.js"],
       cssFiles: ["/bundle.css"],
+      coverImageURL: "/images/cover.png",
     },
     el(
       "section",
