@@ -8,7 +8,7 @@ export default function savings() {
         "절미 적금이 종료되어, 기존에 예치한 인절미의 출금만 가능합니다.",
       jsFiles: ["/bundle.js"],
       cssFiles: ["/bundle.css"],
-      coverImageURL: "/images/cover.png",
+      coverImageURL: "https://injeolmi.com/images/cover.png",
       twitterHandle: "@SigorWorld",
     },
     el(

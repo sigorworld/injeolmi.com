@@ -8,7 +8,7 @@ export default function index() {
         "인절미는 개발자 yj.gaia가 만든 Kaia 블록체인 기반 밈코인입니다. 삭막한 크립토 시장에서 따뜻함과 재미를 주는 것을 목표로 합니다.",
       jsFiles: ["/bundle.js"],
       cssFiles: ["/bundle.css"],
-      coverImageURL: "/images/cover.png",
+      coverImageURL: "https://injeolmi.com/images/cover.png",
       twitterHandle: "@SigorWorld",
     },
     el(
