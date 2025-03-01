@@ -1,6 +1,3 @@
-/*!***************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./style/lib/reset.css ***!
-  \***************************************************************************************************/
 /***
     The new CSS reset - version 1.11.2 (last updated 15.11.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -110,9 +107,6 @@ meter {
 ::-webkit-details-marker {
     display: none;
 }
-/*!**************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/less-loader/dist/cjs.js!./style/main.less ***!
-  \**************************************************************************************************************************************/
 @font-face {
   font-family: ChosunGs;
   src: url("/fonts/chosungs.woff") format("woff");
@@ -392,6 +386,13 @@ button:disabled,
 a.button:disabled {
   color: #808080;
   text-shadow: 1px 1px 0 #ffffff;
+}
+.timeline img {
+  max-width: 200px;
+}
+.memes > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 .extra > a {
   font-size: 14px;

@@ -44,8 +44,76 @@ export default function index() {
         }),
       ),
     ),
-    el("section", el("h2", "특징")),
-    el("section", el("h2", "인절미가 걸어온 길")),
+    el(
+      "section.features",
+      el("h2", "특징"),
+      el(
+        "ul",
+        el(
+          "li",
+          el("h3", "개발자 물량 없음"),
+          el(
+            "p",
+            "개발자 물량이 없습니다. 개발자는 인절미로 수익을 창출하지 않습니다.",
+          ),
+        ),
+        el(
+          "li",
+          el("h3", "LP 토큰 소각"),
+          el(
+            "p",
+            "LP 토큰은 모두 소각되었으므로, 인절미는 영구적으로 거래 가능합니다.",
+          ),
+        ),
+      ),
+    ),
+    el(
+      "section.timeline",
+      el("h2", "인절미가 걸어온 길"),
+      el(
+        "ul",
+        el(
+          "li",
+          el("h3", "2022 2월 28일"),
+          el(
+            "p",
+            "참새 NFT 홀더들에게 집문서 NFT 에어드롭\n* 참새 NFT 1개당 1개의 집문서 NFT 지급",
+          ),
+        ),
+        el(
+          "li",
+          el("h3", "2021 12월 28일"),
+          el(
+            "p",
+            "개당 1,000 인절미로 시고르 참새 NFT 민팅\n* 민팅한 인절미는 모두 락업(이후 전액 소각)",
+          ),
+        ),
+        el(
+          "li",
+          el("h3", "2022년 1월 16일"),
+          el("p", "인절미 하드포크 실행, 떡크노믹스 제거"),
+        ),
+        el(
+          "li",
+          el("h3", "2021년 말"),
+          el("p", "인절미 홀더 대상 4천만원 상당 NFT 에어드롭"),
+        ),
+        el(
+          "li",
+          el("h3", "2021년 12월 20일"),
+          el("p", "떡방앗간 참새들 이름으로 한국미혼모가족협회 천만원 기부"),
+          el("a", el("img", { src: "/images/donation.jpg" }), {
+            href: "/images/donation.jpg",
+            target: "_blank",
+          }),
+        ),
+        el(
+          "li",
+          el("h3", "2021년 11월 4일"),
+          el("p", "인절미 스마트계약 배포"),
+        ),
+      ),
+    ),
     el(
       "section",
       el("h2", "패밀리 사이트"),
@@ -53,9 +121,10 @@ export default function index() {
         "ul",
         el(
           "li",
-          el("a", "시고르", {
-            href: "https://sigor.com",
-            target: "_blank",
+          el("a", "시고르 (개발중)", {
+            //href: "https://sigor.com",
+            //target: "_blank",
+            href: "javascript:alert('개발중이여~')",
           }),
         ),
         el(
@@ -67,9 +136,10 @@ export default function index() {
         ),
         el(
           "li",
-          el("a", "메이트 앱 시고르 참새방", {
+          el("a", "메이트 앱 시고르 참새방 (개발중)", {
             //TODO: href: "https://x.com/SigorWorld",
-            target: "_blank",
+            //target: "_blank",
+            href: "javascript:alert('개발중이여~')",
           }),
         ),
         el(
@@ -88,12 +158,23 @@ export default function index() {
         ),
       ),
     ),
-    el("section.memes", el("h2", "밈")),
     el(
       "section.extra",
       el("a", "절미 적금에 예치한 적이 있다면 > 출금하기", {
         href: "/legacy/savings.html",
       }),
     ),
+    el(
+      "section.memes",
+      el("h2", "밈"),
+      el("p", "인절미 홀더들이 만든 밈들입니다."),
+      el(
+        "ul",
+        ...Array.from({ length: 70 }, (_, i) => i).map((i) =>
+          el("li", el("img", { src: `/images/memes/${i}.png` }))
+        ),
+      ),
+    ),
+    el("footer", el("img", { src: "/images/thankyou.gif" }))
   );
 }
