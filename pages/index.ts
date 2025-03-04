@@ -14,7 +14,7 @@ export default function index() {
     el(
       "section",
       el("h1", "인절미.닷컴"),
-      el("img", {
+      el("img.logo", {
         src: "/images/logo.png",
       }),
       el(
@@ -74,24 +74,20 @@ export default function index() {
         "ul",
         el(
           "li",
-          el("h3", "2022 2월 28일"),
-          el(
-            "p",
-            "참새 NFT 홀더들에게 집문서 NFT 에어드롭\n* 참새 NFT 1개당 1개의 집문서 NFT 지급",
-          ),
+          el("h3", "2021년 11월 4일"),
+          el("p", "인절미 스마트계약 배포"),
         ),
         el(
           "li",
-          el("h3", "2021 12월 28일"),
+          el("h3", "2021년 12월 20일"),
           el(
             "p",
-            "개당 1,000 인절미로 시고르 참새 NFT 민팅\n* 민팅한 인절미는 모두 락업(이후 전액 소각)",
+            el("a", el("img", { src: "/images/donation.jpg" }), {
+              href: "/images/donation.jpg",
+              target: "_blank",
+            }),
+            "떡방앗간 참새들 이름으로 한국미혼모가족협회 천만원 기부",
           ),
-        ),
-        el(
-          "li",
-          el("h3", "2022년 1월 16일"),
-          el("p", "인절미 하드포크 실행, 떡크노믹스 제거"),
         ),
         el(
           "li",
@@ -100,22 +96,31 @@ export default function index() {
         ),
         el(
           "li",
-          el("h3", "2021년 12월 20일"),
-          el("p", "떡방앗간 참새들 이름으로 한국미혼모가족협회 천만원 기부"),
-          el("a", el("img", { src: "/images/donation.jpg" }), {
-            href: "/images/donation.jpg",
-            target: "_blank",
-          }),
+          el("h3", "2022년 1월 16일"),
+          el("p", "인절미 하드포크 실행, 떡크노믹스 제거"),
         ),
         el(
           "li",
-          el("h3", "2021년 11월 4일"),
-          el("p", "인절미 스마트계약 배포"),
+          el("h3", "2021 12월 28일"),
+          el(
+            "p",
+            "개당 1,000 인절미로 시고르 참새 NFT 민팅\n",
+            el("i", "* 민팅한 인절미는 모두 락업(이후 전액 소각)"),
+          ),
+        ),
+        el(
+          "li",
+          el("h3", "2022 2월 28일"),
+          el(
+            "p",
+            "참새 NFT 홀더들에게 집문서 NFT 에어드롭\n",
+            el("i", "* 참새 NFT 1개당 1개의 집문서 NFT 지급"),
+          ),
         ),
       ),
     ),
     el(
-      "section",
+      "section.family",
       el("h2", "패밀리 사이트"),
       el(
         "ul",
@@ -144,14 +149,14 @@ export default function index() {
         ),
         el(
           "li",
-          el("a", "시고르 참새 NFT", {
+          el("a", "시고르 참새 NFT (오픈씨)", {
             href: "https://opensea.io/collection/sigor-sparrows",
             target: "_blank",
           }),
         ),
         el(
           "li",
-          el("a", "시고르 집문서 NFT", {
+          el("a", "시고르 집문서 NFT (오픈씨)", {
             href: "https://opensea.io/collection/sigor-house-deeds",
             target: "_blank",
           }),
@@ -171,10 +176,16 @@ export default function index() {
       el(
         "ul",
         ...Array.from({ length: 70 }, (_, i) => i).map((i) =>
-          el("li", el("img", { src: `/images/memes/${i}.png` }))
+          el(
+            "li",
+            el("a", el("img", { src: `/images/memes/${i}.png` }), {
+              href: `/images/memes/${i}.png`,
+              target: "_blank",
+            }),
+          )
         ),
       ),
     ),
-    el("footer", el("img", { src: "/images/thankyou.gif" }))
+    el("footer", el("img", { src: "/images/thankyou.gif" })),
   );
 }

@@ -105,4 +105,13 @@ if (location.pathname === "/legacy/savings.html") {
     alert("출금되었습니다.");
     renderConnected();
   });
+} else {
+  const element = document.querySelector("img.logo");
+  if (element) {
+    const logo = new DomNode(element as HTMLImageElement);
+    logo.onDom("mousedown", () => logo.htmlElement.src = "/images/logo2.png");
+    logo.onDom("mouseup", () => logo.htmlElement.src = "/images/logo.png");
+    logo.onDom("touchstart", () => logo.htmlElement.src = "/images/logo2.png");
+    logo.onDom("touchend", () => logo.htmlElement.src = "/images/logo.png");
+  }
 }

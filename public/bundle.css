@@ -316,9 +316,20 @@ h1,
 h2 {
   color: var(--primary-color);
 }
+@container (width < 520px) {
+  img.logo {
+    width: 200px;
+  }
+}
 h1 {
   font-size: 86px;
   text-shadow: -2px -2px 0 #1f1f1f, -2px -1px 0 #1f1f1f, -2px 0px 0 #1f1f1f, -2px 1px 0 #1f1f1f, -2px 2px 0 #1f1f1f, -1px -2px 0 #1f1f1f, -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, -1px 2px 0 #1f1f1f, 0px -2px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 0px 2px 0 #1f1f1f, 1px -2px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f, 1px 2px 0 #1f1f1f, 2px -2px 0 #1f1f1f, 2px -1px 0 #1f1f1f, 2px 0px 0 #1f1f1f, 2px 1px 0 #1f1f1f, 2px 2px 0 #1f1f1f;
+}
+@container (width < 520px) {
+  h1 {
+    font-size: 48px;
+    text-shadow: -1px -1px 0 #1f1f1f, -1px 0px 0 #1f1f1f, -1px 1px 0 #1f1f1f, 0px -1px 0 #1f1f1f, 0px 1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, 1px 0px 0 #1f1f1f, 1px 1px 0 #1f1f1f;
+  }
 }
 h2 {
   font-size: 32px;
@@ -387,8 +398,55 @@ a.button:disabled {
   color: #808080;
   text-shadow: 1px 1px 0 #ffffff;
 }
-.timeline img {
-  max-width: 200px;
+.features > ul,
+.timeline > ul {
+  width: 100%;
+  max-width: 670px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+}
+.features > ul > li,
+.timeline > ul > li {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  padding: 3px;
+}
+.features > ul > li > h3,
+.timeline > ul > li > h3 {
+  display: flex;
+  padding: 3px 2px 3px 3px;
+  background: linear-gradient(90deg, navy, #1084d0);
+  align-items: center;
+  flex-grow: 1;
+  color: #fff;
+  font-weight: bold;
+}
+.features > ul > li > p,
+.timeline > ul > li > p {
+  padding: 8px;
+  line-height: 1.5em;
+  text-align: left;
+}
+.features > ul > li > p > i,
+.timeline > ul > li > p > i {
+  font-style: italic;
+}
+.features > ul > li > p > a,
+.timeline > ul > li > p > a {
+  margin-left: 5px;
+  float: right;
+}
+.features > ul > li > p > a > img,
+.timeline > ul > li > p > a > img {
+  max-width: 70px;
+}
+.family > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  list-style: disc;
 }
 .memes > ul {
   display: grid;
