@@ -11,6 +11,7 @@ export default function savings() {
       coverImageURL: "https://injeolmi.com/images/cover.png",
       twitterHandle: "@SigorWorld",
     },
+    el("a", "← 홈으로", { href: "/" }),
     el(
       "section",
       el("h2", "(구) 절미 적금"),
