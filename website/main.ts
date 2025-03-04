@@ -111,7 +111,10 @@ if (location.pathname === "/legacy/savings.html") {
     const logo = new DomNode(element as HTMLImageElement);
     logo.onDom("mousedown", () => logo.htmlElement.src = "/images/logo2.png");
     logo.onDom("mouseup", () => logo.htmlElement.src = "/images/logo.png");
-    logo.onDom("touchstart", () => logo.htmlElement.src = "/images/logo2.png");
+    logo.onDom("touchstart", (event) => {
+      event.preventDefault();
+      logo.htmlElement.src = "/images/logo2.png";
+    });
     logo.onDom("touchend", () => logo.htmlElement.src = "/images/logo.png");
   }
 }
