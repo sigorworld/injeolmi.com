@@ -175,7 +175,7 @@ export default function index() {
       el("p", "인절미 홀더들이 만든 밈들입니다."),
       el(
         "ul",
-        ...Array.from({ length: 70 }, (_, i) => i).map((i) =>
+        ...Array.from({ length: 82 }, (_, i) => i).map((i) =>
           el(
             "li",
             el("a", el("img", { src: `/images/memes/${i}.png` }), {
