@@ -86,10 +86,10 @@ if (location.pathname === "/legacy/savings.html") {
       KaiaWalletSessionManager.getConnectedAddress()!,
     );
 
-    /*if (withdrawable === 0n) {
+    if (withdrawable === 0n) {
       alert("출금 가능한 인절미가 없습니다.");
       return;
-    }*/
+    }
 
     if (
       !confirm(
