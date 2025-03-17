@@ -318,11 +318,6 @@ dialog.modal.prompt-dialog > header > h1 > .icon {
   display: flex;
   gap: 4px;
 }
-@container (width <= 520px) {
-  .image-viewer > .container > header > .button-container {
-    gap: 0;
-  }
-}
 .image-viewer > .container > header > .button-container.left {
   justify-self: start;
 }
