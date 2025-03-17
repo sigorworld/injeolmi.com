@@ -1,5 +1,5 @@
 import { DomNode } from "@common-module/app";
-import { AppCompConfig } from "@common-module/app-components";
+import { AppCompConfig, ImageViewer } from "@common-module/app-components";
 import { StringUtils } from "@common-module/ts";
 import {
   KaiaWalletModuleConfig,
@@ -117,4 +117,64 @@ if (location.pathname === "/legacy/savings.html") {
     });
     logo.onDom("touchend", () => logo.htmlElement.src = "/images/logo.png");
   }
+
+  // timeline
+  (() => {
+    const srcs: string[] = [];
+    function openImageViewer(imageIndex: number) {
+      new ImageViewer({
+        images: srcs.map((src) => ({ imageUrl: src, thumbnailUrl: src })),
+        initialIndex: imageIndex,
+      });
+    }
+
+    const ul = document.querySelector("section.timeline ul")!;
+    const liElements = Array.from(ul.querySelectorAll("li"));
+
+    let i = 0;
+    liElements.forEach((li) => {
+      const src = li.querySelector("img")?.src;
+      if (src) {
+        srcs.push(src);
+
+        const imageIndex = i++;
+        li.querySelector("a")!.addEventListener("click", (event) => {
+          event.preventDefault();
+          openImageViewer(imageIndex);
+        });
+      }
+    });
+  })();
+
+  // memes
+  (() => {
+    const srcs: string[] = [];
+    function openImageViewer(imageIndex: number) {
+      new ImageViewer({
+        images: srcs.map((src) => ({ imageUrl: src, thumbnailUrl: src })),
+        initialIndex: imageIndex,
+      });
+    }
+
+    const ul = document.querySelector("section.memes ul")!;
+    const liElements = Array.from(ul.querySelectorAll("li"));
+    for (let i = liElements.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [liElements[i], liElements[j]] = [liElements[j], liElements[i]];
+    }
+    ul.innerHTML = "";
+
+    let i = 0;
+    liElements.forEach((li) => {
+      const src = li.querySelector("img")!.src;
+      srcs.push(src);
+
+      const imageIndex = i++;
+      li.querySelector("a")!.addEventListener("click", (event) => {
+        event.preventDefault();
+        openImageViewer(imageIndex);
+      });
+      ul.appendChild(li);
+    });
+  })();
 }

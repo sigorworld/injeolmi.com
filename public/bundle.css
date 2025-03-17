@@ -1,3 +1,4 @@
+@import url(https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css);
 /***
     The new CSS reset - version 1.11.2 (last updated 15.11.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -272,6 +273,165 @@ dialog.modal.confirm-dialog > header > h1 > .icon,
 dialog.modal.prompt-dialog > header > h1 > .icon {
   width: 32px;
   height: 32px;
+}
+.image-viewer {
+  position: fixed;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: none;
+  user-select: none;
+  background-color: transparent !important;
+}
+@container (width <= 520px) {
+  .image-viewer {
+    width: 100% !important;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    background-color: transparent;
+  }
+}
+.image-viewer button {
+  padding: 12px;
+  min-width: 45px;
+  font-family: Tossface;
+  color: #000;
+}
+.image-viewer > .container > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 16px 20px;
+}
+@container (width <= 520px) {
+  .image-viewer > .container > header {
+    padding: 10px;
+  }
+}
+.image-viewer > .container > header > .button-container {
+  display: flex;
+  gap: 4px;
+}
+@container (width <= 520px) {
+  .image-viewer > .container > header > .button-container {
+    gap: 0;
+  }
+}
+.image-viewer > .container > header > .button-container.left {
+  justify-self: start;
+}
+@container (width > 520px) {
+  .image-viewer > .container > header > .button-container.left > button.share,
+  .image-viewer > .container > header > .button-container.left > button.download {
+    display: none;
+  }
+}
+.image-viewer > .container > header > .image-counter {
+  justify-self: center;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 0 0 4px #000;
+}
+.image-viewer > .container > header > .button-container.right {
+  justify-self: end;
+}
+@container (width <= 520px) {
+  .image-viewer > .container > header > .button-container.right > button.share,
+  .image-viewer > .container > header > .button-container.right > button.download {
+    display: none;
+  }
+}
+.image-viewer > .container > button.prev {
+  position: fixed;
+  top: 50%;
+  left: 40px;
+  z-index: 99999;
+  transform: translateY(-50%);
+}
+@container (width <= 520px) {
+  .image-viewer > .container > button.prev {
+    display: none;
+  }
+}
+.image-viewer > .container > .main-image-viewer > img {
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 230px);
+  max-height: calc(100% - 230px);
+}
+@container (width <= 520px) {
+  .image-viewer > .container > .main-image-viewer > img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+.image-viewer > .container > .main-image-viewer > img:not(.current) {
+  pointer-events: none;
+}
+.image-viewer > .container > button.next {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  z-index: 99999;
+  transform: translateY(-50%);
+}
+@container (width <= 520px) {
+  .image-viewer > .container > button.next {
+    display: none;
+  }
+}
+.image-viewer > .container:has(.main-image-viewer > img:only-child) > button.prev,
+.image-viewer > .container:has(.main-image-viewer:empty) > button.prev,
+.image-viewer > .container:has(.main-image-viewer > img:only-child) > button.next,
+.image-viewer > .container:has(.main-image-viewer:empty) > button.next {
+  display: none;
+}
+.image-viewer > .container > .zoom-controls {
+  position: fixed;
+  bottom: 140px;
+  left: 50%;
+  z-index: 99999;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+@container (width <= 520px) {
+  .image-viewer > .container > .zoom-controls {
+    display: none;
+  }
+}
+.image-viewer > .container > footer {
+  position: fixed;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  overflow-x: auto;
+  padding: 10px 20px;
+}
+.image-viewer > .container > footer > .thumbnail-list {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  margin: 0 auto;
+}
+.image-viewer > .container > footer > .thumbnail-list > .thumbnail-list-item {
+  height: 60px;
+  display: flex;
+  transition: outline, height 0.2s ease-in-out;
+}
+.image-viewer > .container > footer > .thumbnail-list > .thumbnail-list-item.selected {
+  outline: 4px solid #fff;
+  height: 64px;
 }
 .non-modal-dialog-container:has(.kaia-wallet-connection-modal),
 .non-modal-dialog-container:has(.kaia-wallet-login-modal) {
